@@ -7,11 +7,49 @@
     <title>Zwaz</title>
     <!-- My CSS -->
     <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/background.css">
     <!-- Favicon -->
     <link rel="icon" type='image/x-icon' href="/static/images/favicon.ico">
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Modak&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class='container'>
+        <div class='row mobile' id='mLogoDiv' value='home'>
+            <p id='mLogo'>ZwazozawZ</p>
+            <p id='mText'>Background</p>
+        </div>
+        <div class='row' id='backgroundContentDiv'>
+            <p class='backgroundContentHeader'>Background</p>
+            <p class='backgroundContent'>I began exploration of college basketball statistics around five years ago when 
+                I was copying tables from <a class="in-text-link" href='https://www.sports-reference.com/cbb/'>Basketball-Reference
+                </a> into Excel. I was using macros to reformat the data and designing my own algorithms to analyze a team's 
+                strength. My first algorithm correctly predicted the result of 29 of the 32 first round games in 2016's March 
+                Madness tournament and I was immediately hooked, not only on the basketball statistics but on the analysis itself.</p>
+            <p class='backgroundContent'>Since then, my knowledge of data analysis tools and principles has expanded extensively 
+                and, with that, my methods have changed significantly. Currently, I am using Pandas and Jupyter Notebook to 
+                clean and organize the data before using Python to run the data through algorithms. Finally, I am using 
+                Matplotlib to visualize the results with a primary focus on the correlations between my algorithms and a 
+                team's win percentage.</p>
+            
+            <p class='backgroundContentHeader'>Algorithm</p>
+            <p class='backgroundContent'>While I examine the correlation of many variables with win percentage, my primary 
+                interest in the exploration of these statistics is the development of my own algorithm. Seventy-seven percent 
+                of the variation in win percentage for this season is explained through this algorithm, placing it at the same 
+                level as more established metrics.</p>
+            
+            <p class='backgroundContentHeader'>Considerations</p>
+            <p class='backgroundContent'>Due to Covid-19, many teams elected to either not play a basketball season, or to play 
+                an abbreviated schedule. This leads to larger than average variation in the number of games played and was the 
+                key factor in my decision to use win percentage rather than wins for correlations. A total of nine teams were 
+                dropped completely from the dataset because they did not play in any games this season.</p>
+            <p class='backgroundContent'>As of now, all data is sourced through csv files from 
+                <a class="in-text-link" href='https://www.sports-reference.com/cbb/'>Basketball-Reference</a> according to their 
+                data usage policies. Moving forward, I will be moving to web scraped data and developing more advanced algorithms 
+                that stem from my own accumulation of the data throughout the season, rather than looking at season totals.</p>
+        </div>
         <div class='row hidden mobile' id='mNavOnClick'>
             <div class='mNavItemDiv'>
                 <img class='mNavIcon' id='mIconHome' value='home' src='https://img.icons8.com/ios/50/000000/basketball--v1.png'>

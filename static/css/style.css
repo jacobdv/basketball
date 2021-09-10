@@ -1,6 +1,7 @@
 body, html {
     margin: 0;
     padding: 0;
+    background-color: seashell;
 }
 .row {
     text-align: center;
@@ -12,19 +13,31 @@ body, html {
     height: 30px;
     width: 30px;
     position: fixed;
-    bottom: 13px;
+    bottom: 23px;
     right: 13px;
     cursor: pointer;
     padding: 3px;
     border-radius: 100%;
     border: 3px solid orange;
+    background-color: navajowhite;
 }
+/* #mNavbar {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 175px;
+    height: 75px;
+    border-left: 3px solid orange;
+    border-top: 3px solid orange;
+    border-top-left-radius: 100%;
+    background-color: navajowhite;
+} */
 #mNavbar:hover {
     background-color: navajowhite;
 }
 #mNavbar:active {
     border: 1px solid orange;
-    bottom: 15px;
+    bottom: 25px;
     right: 15px;
 }
 #mNavOnClick {
@@ -71,6 +84,36 @@ body, html {
 .mNavItemDiv:hover>.mNavIcon {
     background-color: navajowhite;
     border-color: orange;
+}
+#mLogoDiv {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 175px;
+    height: 75px;
+    border-right: 3px solid orange;
+    border-bottom: 3px solid orange;
+    border-bottom-right-radius: 100%;
+    background-color: navajowhite;
+}
+#mLogoDiv:active {
+    border-width: 1px;
+}
+#mLogo {
+    margin: 0;
+    color: black;
+    padding: 10px 0 0 13px;
+    font-family: 'Modak', cursive;
+    text-align: left;
+    font-size: 1.25em;
+}
+#mText {
+    margin: 0;
+    color: black;
+    padding: 0 0 0 13px;
+    font-family: 'Modak', cursive;
+    text-align: left;
+    font-size: 0.75em;
 }
 @media only screen and (min-width: 600px) {
     .mobile {

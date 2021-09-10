@@ -7,6 +7,7 @@ menuIcon.on('click', function() {
         onClickNav.classed('hidden', true);
     };
 });
+
 let navItems = d3.selectAll('.mNavItemText');
 navItems.on('click', function() {
     let selection = this.attributes.value.value;
@@ -17,7 +18,11 @@ navIcons.on('click', function() {
     let selection = this.attributes.value.value;
     linkNavigation(selection);
 });
-
+let header = d3.select('#mLogoDiv');
+header.on('click', function() {
+    let selection = this.attributes.value.value;
+    linkNavigation(selection);
+});
 function linkNavigation(selection) {
     if (selection !== 'home') {
         location = `/${selection}`;

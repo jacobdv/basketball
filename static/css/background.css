@@ -1,0 +1,13 @@
+#backgroundContentDiv {
+    position: fixed;
+    top: 60px;
+    margin: 0 5vw 25px 5vw;
+    width: 90vw;
+    overflow-y: scroll;
+}
+.backgroundContentHeader {
+
+}
+.backgroundContent {
+
+}
