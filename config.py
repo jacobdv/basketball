@@ -1,1 +1,1 @@
-atlasPassword = 'dbUserPassword'
+mongoURI = 'mongodb+srv://dbUser:dbUserPassword@cluster0.nm6nb.mongodb.net/test'

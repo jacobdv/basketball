@@ -11,15 +11,29 @@
     <link rel="icon" type='image/x-icon' href="/static/images/favicon.ico">
 </head>
 <body>
-    <div id='navCol'>       
-        <h1 id='navHeader'>Zwaz</h1>
-        <ul id='pageList'>
-            <li><a class='pageLink active' href='/'>Home</a></li>
-            <li><a class='pageLink inactive' href='/background/'>Background</a></li>
-            <li><a class='pageLink inactive' href='/analysis/'>Analysis</a></li>
-            <li><a class='pageLink inactive' href='/data/'>Data</a></li>
-        </ul>
-    </div>    
+    <div class='container'>
+        <div class='row hidden mobile' id='mNavOnClick'>
+            <div class='mNavItemDiv'>
+                <img class='mNavIcon mActive' id='mIconHome' value='home' src='https://img.icons8.com/ios/50/000000/basketball--v1.png'>
+                <h1 class='text mNavItemText' value='home'>Home</h1>
+            </div>
+            <div class='mNavItemDiv'>
+                <img class='mNavIcon' id='mIconBackground' value='background' src='https://img.icons8.com/ios/50/000000/overview-pages-1.png'>
+                <h1 class='text mNavItemText' value='background'>Background</h1>
+            </div>
+            <div class='mNavItemDiv'>                
+                <img class='mNavIcon' id='mIconAnalysis' value='analysis' src='https://img.icons8.com/material-rounded/48/000000/graph.png'>
+                <h1 class='text mNavItemText' value='analysis'>Analysis</h1>                
+            </div>
+            <div class='mNavItemDiv'>
+                <img class='mNavIcon' id='mIconData' value='data' src='https://img.icons8.com/small/64/000000/data-sheet.png'>
+                <h1 class='text mNavItemText' value='data'>Data</h1>
+            </div>
+        </div>
+        <div class='row mobile' id='mNavbar'>
+            <img src='https://img.icons8.com/material-outlined/30/000000/menu--v1.png'>
+        </div>
+    </div>
     
     <!-- D3 Scripts -->
     <script src="https://d3js.org/d3.v5.min.js"></script>

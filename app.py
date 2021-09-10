@@ -1,55 +1,53 @@
-# Dependencies for Flask App / Data
-from flask import Flask, render_template
+# Dependencies
+from flask import Flask, render_template, jsonify
 from flask_cors import CORS
+import pymongo 
 from flask_pymongo import PyMongo
-from config import atlasPassword
+import os
 
-# Additional Resource Dependencies
-import datetime as dt
+# Additional API tools.
 import json
 from bson import json_util
-from bson.json_util import dumps
+from bson.json_util import default, dumps
 
 # App
 app = Flask(__name__)
 CORS(app)
 
-# Connection to MongoDB Atlas
-app.config['DEBUG'] = True
-app.config['MONGO_URI'] = f'mongodb+srv://dbUser:{atlasPassword}@cluster0.nm6nb.mongodb.net/twentyTwentyOne'
-mongo = PyMongo(app)
-collection = mongo.db['regularSeason']
+# Local
+from config import mongoURI
+client = pymongo.MongoClient(mongoURI)
+app.config['MONGO_URI'] = mongoURI
+# Heroku
+# client = pymongo.MongoClient(os.environ['MONGO_URI'])
+# app.config['MONGO_URI'] = os.environ['MONGO_URI']
 
-# Routes - Home
+# Connection to Database
+db = client['twentyTwentyOne']
+app.config['DEBUG'] = True
+mongo = PyMongo(app)
+regularSeason = db['regularSeason']
+
+# Page Routes
 @app.route('/')
 def index():
     return render_template('index.html')
-# Background
-@app.route('/background/')
-def background():
-    return render_template('background.html')
-# Analysis
-@app.route('/analysis/')
-def analysis():
-    return render_template('analysis.html')
-# Data
 @app.route('/data/')
 def data():
     return render_template('data.html')
+@app.route('/background/')
+def background():
+    return render_template('background.html')
+@app.route('/analysis/')
+def analysis():
+    return render_template('analysis.html')
 
-# API Endpoints - All Data
-@app.route('/api/', methods=['GET'])
-def allData():
-    data = list(collection.find({},{'_id':0}))
-    return json.dumps(data, default=json_util.default)
+# Data Routes
+@app.route('/stats/')
+def stats():
+    listData = list(regularSeason.find({}, {'_id':0}))
+    return json.dumps(listData, default=json_util.default)
 
-# Team Endpoints
-@app.route('/api/<school>/', methods=['GET','POST'])
-def teamData(school):
-    school = school.title()
-    data = list(collection.find({'school':school}))
-    return json.dumps(data, default=json_util.default)
-
-# Debug Clause
+# Debug
 if __name__ == '__main__':
     app.run(debug=True)
