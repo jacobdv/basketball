@@ -44,8 +44,10 @@ body, html {
     position: fixed;
     right: 16px;
     bottom: 25px;
-    width: 200px;
+    width: 150px;
     height: 200px;
+    background-color: seashell;
+    border-top-left-radius: 35%;
 }
 .mNavItemDiv {
     height: 20%;

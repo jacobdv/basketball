@@ -1,13 +1,20 @@
 #backgroundContentDiv {
     position: fixed;
-    top: 60px;
-    margin: 0 5vw 25px 5vw;
-    width: 90vw;
+    top: 80px;
+    margin: 0 10vw 30px 10vw;
+    width: 80vw;
+    max-height: 80vh;
     overflow-y: scroll;
 }
 .backgroundContentHeader {
-
+    text-align: center;
+    margin: 1vh 0 0 0;
 }
 .backgroundContent {
-
+    text-align: justify;
+    margin: 2vh 0 2vh 0;
+}
+.in-text-link {
+    text-decoration: none;
+    color: black;
 }
