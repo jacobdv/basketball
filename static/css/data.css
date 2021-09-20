@@ -1,0 +1,44 @@
+#mSelectionMenuDiv {
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    width: calc(100vw - 175px);
+    margin: 0;
+    text-align: right;
+}
+#selectionSearch {
+    box-sizing: border-box;
+    font-size: 16px;
+    border: 1px solid orange;
+    text-align: center;
+    margin: 12px 13px 0 0;
+    width: fit-content;
+}
+.selectionContent {
+    display: none;
+    z-index: 10;
+    max-height: 30vh;
+    overflow-y: scroll;
+    text-align: center;
+    border: 1px solid orange;
+    border-top: none;
+    width: 195px;
+    float: right;
+    margin-right: 16px;
+    background-color: whitesmoke;
+    opacity: 100%;
+}
+.dropdownSchool {
+    display: block;
+    background-color: whitesmoke;
+}
+.show {
+    display: block;
+}
+
+/* Stat Content */
+#mDataDisplay {
+    width: 90vw;
+    margin: 78px 5vw 0 5vw;
+    z-index: 0;
+}

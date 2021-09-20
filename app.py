@@ -47,6 +47,10 @@ def analysis():
 def stats():
     listData = list(regularSeason.find({}, {'_id':0}))
     return json.dumps(listData, default=json_util.default)
+@app.route('/stats/<school>/')
+def schoolStats(school):
+    schoolData = list(regularSeason.find({'school':school}, {'_id':0}))
+    return json.dumps(schoolData, default=json_util.default)
 
 # Debug
 if __name__ == '__main__':
