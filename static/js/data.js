@@ -150,7 +150,7 @@ function displayData(school) {
         let conferenceRecord = d3.select('#conferenceRecord');
         conferenceRecord._groups[0][0].textContent = `Conf. Record: ${constantStats.conference_wins} - ${constantStats.conference_losses}`;
         // Constant Stats
-        let fg_pct = 
-        let 
+        // let fg_pct = 
+        // let 
     })
 }
