@@ -3,6 +3,8 @@ d3.json('http://127.0.0.1:5000/stats/').then(data => {
     data.forEach(school => {
         selectionContent.append('p').text(school.school).classed('dropdownSchool', true);
     });
+    let randomNumber = Math.floor(Math.random() * data.length);
+    displayData(data[randomNumber].school);
 });
 
 function searchSchools() {
@@ -23,23 +25,15 @@ function searchSchools() {
     schools.on('click', function () {
         let school = this.textContent;
         input._groups[0][0].value = '';
-        input._groups[0][0].placeholder = school;
+        input._groups[0][0].placeholder = 'Search Schools...';
         selectionContent.classed('show',false);
         displayData(school);
     })
 };
 
 function displayData(school) {
-    console.log(school);
-    let header = d3.select('#schoolName')
-    header._groups[0][0].textContent = school;
-    let constantStatsDiv = d3.select('#constantStatsDiv');
-    let basicStatsDiv = d3.select('#basicStatsDiv');
-    let advancedStatsDiv = d3.select('#advancedStatsDiv');
-    let algorithmStatsDiv = d3.select('#algorithmStatsDiv');
-
     d3.json(`http://127.0.0.1:5000/stats/${school}/`).then(data => {
-        console.log(data)
+        data = data[0];
         let constantStats = {
             'school': data.school,
             'away_losses': data.a_losses,
@@ -77,7 +71,6 @@ function displayData(school) {
             'two_pointers': data.two_p,
             'two_point_attempts': data.two_pa
         };
-        
         let advancedStats = {
             'assist_percentage': data.ast_pct,
             'assists_per_turnover': data.ast_per_tov,
@@ -147,5 +140,13 @@ function displayData(school) {
         let opponentAlgorithmStats = {
 
         }
+
+        // Selecting HTML elements to be updated with stats.
+        let header = d3.select('#schoolName');
+        header._groups[0][0].textContent = school;
+        let totalRecord = d3.select('#totalRecord');
+        totalRecord._groups[0][0].textContent = `Record: ${constantStats.wins} - ${constantStats.losses}`;
+        let conferenceRecord = d3.select('#conferenceRecord');
+        conferenceRecord._groups[0][0].textContent = `Conf. Record: ${constantStats.conference_wins} - ${constantStats.conference_losses}`;
     })
 }

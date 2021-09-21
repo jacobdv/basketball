@@ -42,3 +42,30 @@
     margin: 78px 5vw 0 5vw;
     z-index: 0;
 }
+#statsHeader {
+    width: 100%;
+    min-height: fit-content;
+    text-align: center;
+}
+#statsHeader p {
+    margin: 0;
+}
+#schoolName {
+    font-size: 24px;
+    font-family: 'Modak', cursive;
+    font-size: 1.5em;
+    font-weight: lighter;
+}
+#totalRecord {
+    width: 50%;
+    float:left;
+}
+#conferenceRecord {
+    width: 50%;
+    float: right;
+}
+/* Constant Stats */
+#constantStatsDiv {
+    width: 90vw;
+    border: 1px solid orange;
+}
