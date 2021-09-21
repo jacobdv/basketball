@@ -1,3 +1,5 @@
+let pageLink = 'http://127.0.0.1:5000/'
+
 let menuIcon = d3.select('#mNavbar');
 let onClickNav = d3.select('#mNavOnClick');
 menuIcon.on('click', function() {

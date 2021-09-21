@@ -1,5 +1,5 @@
 let selectionContent = d3.select('.selectionContent');
-d3.json('http://127.0.0.1:5000/stats/').then(data => {
+d3.json(`${pageLink}stats/`).then(data => {
     data.forEach(school => {
         selectionContent.append('p').text(school.school).classed('dropdownSchool', true);
     });
@@ -32,7 +32,7 @@ function searchSchools() {
 };
 
 function displayData(school) {
-    d3.json(`http://127.0.0.1:5000/stats/${school}/`).then(data => {
+    d3.json(`${pageLink}stats/${school}/`).then(data => {
         data = data[0];
         let constantStats = {
             'school': data.school,
@@ -142,11 +142,15 @@ function displayData(school) {
         }
 
         // Selecting HTML elements to be updated with stats.
+        // Stats Header
         let header = d3.select('#schoolName');
         header._groups[0][0].textContent = school;
         let totalRecord = d3.select('#totalRecord');
         totalRecord._groups[0][0].textContent = `Record: ${constantStats.wins} - ${constantStats.losses}`;
         let conferenceRecord = d3.select('#conferenceRecord');
         conferenceRecord._groups[0][0].textContent = `Conf. Record: ${constantStats.conference_wins} - ${constantStats.conference_losses}`;
+        // Constant Stats
+        let fg_pct = 
+        let 
     })
 }
