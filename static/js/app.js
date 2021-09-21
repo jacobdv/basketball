@@ -1,5 +1,5 @@
 // let pageLink = 'http://127.0.0.1:5000/'
-let pageLink = 'https://happy-mahavira-365e38.netlify.app/'
+let pageLink = 'https://zbasketball.herokuapp.com/data/'
 
 let menuIcon = d3.select('#mNavbar');
 let onClickNav = d3.select('#mNavOnClick');
