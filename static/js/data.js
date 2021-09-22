@@ -30,7 +30,7 @@ function searchSchools() {
         displayData(school);
     })
 };
-
+let basicStats;
 function displayData(school) {
     d3.json(`${pageLink}stats/${school}/`).then(data => {
         data = data[0];
@@ -52,7 +52,7 @@ function displayData(school) {
             'win_percentage': data.w_pct,
             'wins': data.wins
         };
-        let basicStats = {
+        basicStats = {
             'assists': data.ast,
             'blocks': data.blk,
             'field_goals': data.fg,

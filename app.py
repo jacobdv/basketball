@@ -15,12 +15,12 @@ app = Flask(__name__)
 CORS(app)
 
 # Local
-# from config import mongoURI
-# client = pymongo.MongoClient(mongoURI)
-# app.config['MONGO_URI'] = mongoURI
+from config import mongoURI
+client = pymongo.MongoClient(mongoURI)
+app.config['MONGO_URI'] = mongoURI
 # Heroku
-client = pymongo.MongoClient(os.environ['MONGO_URI'])
-app.config['MONGO_URI'] = os.environ['MONGO_URI']
+# client = pymongo.MongoClient(os.environ['MONGO_URI'])
+# app.config['MONGO_URI'] = os.environ['MONGO_URI']
 
 # Connection to Database
 db = client['twentyTwentyOne']
