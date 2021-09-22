@@ -34,19 +34,19 @@ function searchSchools() {
 function displayData(school) {
     d3.json(`${pageLink}stats/${school}/`).then(data => {
         data = data[0];
-        let constantStatsDiv = {
+        let pageOneStats = {
             'Games': data.games,
             'SRS': data.srs,
             'Pace': data.pace,
-            'FGpct': data.fg_pct,
-            '3Ppct': data.three_p_pct,
-            'FTpct': data.ft_pct,
-            'PPG': (data.t_points / data.games),
-            'RPG': (data.trb / data.games),
-            'APG': (data.ast / data.games),
-            'BPG': (data.blk / data.games),
-            'SPG': (data.stl / data.games),
-            'TOVPG': (data.tov / data.games)
+            'FGpct': `${data.fg_pct * 100}%`,
+            '3Ppct': `${data.three_p_pct * 100}%`,
+            'FTpct': `${data.ft_pct * 100}%`,
+            'PPG': (data.t_points / data.games).toFixed(1),
+            'RPG': (data.trb / data.games).toFixed(1),
+            'APG': (data.ast / data.games).toFixed(1),
+            'BPG': (data.blk / data.games).toFixed(1),
+            'SPG': (data.stl / data.games).toFixed(1),
+            'TOVPG': (data.tov / data.games).toFixed(1)
         };
         let constantStats = {
             'school': data.school,
@@ -107,9 +107,6 @@ function displayData(school) {
             'true_shooting_percentage': data.ts_pct,
             'two_point_percentage': data.two_p_pct
         };
-        let algorithmStats =  {
-
-        };
         let opponentStats = {
             'assists': data.o_ast,
             'blocks': data.o_blk,
@@ -151,22 +148,24 @@ function displayData(school) {
             'total_rebound_success_percentage': data.o_trs_pct, 
             'two_point_percentage': data.o_two_p_pct
         }
-        let opponentAlgorithmStats = {
-
-        }
 
         // Selecting HTML elements to be updated with stats.
         // Stats Header
-        let header = d3.select('#schoolName');
-        header._groups[0][0].textContent = school;
-        let totalRecord = d3.select('#totalRecord');
-        totalRecord._groups[0][0].textContent = `Record: ${constantStats.wins} - ${constantStats.losses}`;
-        let conferenceRecord = d3.select('#conferenceRecord');
-        conferenceRecord._groups[0][0].textContent = `Conf. Record: ${constantStats.conference_wins} - ${constantStats.conference_losses}`;
-        // Constant Stats
-        let constantStatArray = ['Games','SRS','Pace','FGpct','3Ppct','FTpct','PPG','RPG','APG','BPG','SPG','TOVPG'];
-        constantStatArray.forEach(stat => {
-            d3.select(`#stat${stat}`)._groups[0][0].textContent = constantStatsDiv[stat];
+        d3.select('#schoolName')._groups[0][0].textContent = school;
+        d3.select('#totalRecord')._groups[0][0].textContent = `Record: ${constantStats.wins} - ${constantStats.losses}`;
+        d3.select('#conferenceRecord')._groups[0][0].textContent = `Conf. Record: ${constantStats.conference_wins} - ${constantStats.conference_losses}`;
+        
+        // Page One Stats
+        let pageOneStatsArray = ['Games','SRS','Pace','FGpct','3Ppct','FTpct','PPG','RPG','APG','BPG','SPG','TOVPG'];
+        let constantStatDiv = d3.select('#constantStatsDiv');
+        pageOneStatsArray.forEach(stat => {
+            let thisBox = constantStatDiv.append('div').classed('dataBox', true);
+            thisBox.append('p').classed('dataBoxName', true).text(stat);
+            thisBox.append('p').classed('dataBoxStat', true).attr('id',`stat${stat}`).text(pageOneStats[stat]);
         });
     })
 }
+
+d3.selectAll('.statPageOption').on('click', function() {
+    console.log(this.textContent);
+})

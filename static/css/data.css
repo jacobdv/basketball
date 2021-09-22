@@ -48,22 +48,36 @@
     height: 60px;
     text-align: center;
 }
-#statsHeader p {
-    margin: 0;
-}
 #schoolName {
     font-size: 24px;
     font-family: 'Modak', cursive;
     font-size: 1.5em;
     font-weight: lighter;
+    margin: 0;
 }
 #totalRecord {
     width: 50%;
     float:left;
+    margin: 0;
 }
 #conferenceRecord {
     width: 50%;
     float: right;
+    margin: 0;
+}
+/* Stat Page Selection */
+#statPageSelectionDiv {
+    height: 20px;
+    min-height: fit-content;
+    margin: 2vh 0 1vh 0;
+}
+.statPageOption {
+    width: 25%;
+    margin: 0;
+    float: left;
+}
+.statPageOption:hover {
+    text-decoration: underline;
 }
 /* Constant Stats */
 #constantStatsDiv {
@@ -71,13 +85,9 @@
     position: relative;
     height: 100%;
 }
-.dataRow {
-    height: 25%;
-    margin: none;
-}
 .dataBox {
     width: calc(100% / 3);
     margin: none;
     float: left;
-    height: 100%;
+    height: 25%;
 }
