@@ -30,10 +30,24 @@ function searchSchools() {
         displayData(school);
     })
 };
-let basicStats;
+
 function displayData(school) {
     d3.json(`${pageLink}stats/${school}/`).then(data => {
         data = data[0];
+        let constantStatsDiv = {
+            'Games': data.games,
+            'SRS': data.srs,
+            'Pace': data.pace,
+            'FGpct': data.fg_pct,
+            '3Ppct': data.three_p_pct,
+            'FTpct': data.ft_pct,
+            'PPG': (data.t_points / data.games),
+            'RPG': (data.trb / data.games),
+            'APG': (data.ast / data.games),
+            'BPG': (data.blk / data.games),
+            'SPG': (data.stl / data.games),
+            'TOVPG': (data.tov / data.games)
+        };
         let constantStats = {
             'school': data.school,
             'away_losses': data.a_losses,
@@ -52,7 +66,7 @@ function displayData(school) {
             'win_percentage': data.w_pct,
             'wins': data.wins
         };
-        basicStats = {
+        let basicStats = {
             'assists': data.ast,
             'blocks': data.blk,
             'field_goals': data.fg,
@@ -150,7 +164,9 @@ function displayData(school) {
         let conferenceRecord = d3.select('#conferenceRecord');
         conferenceRecord._groups[0][0].textContent = `Conf. Record: ${constantStats.conference_wins} - ${constantStats.conference_losses}`;
         // Constant Stats
-        // let fg_pct = 
-        // let 
+        let constantStatArray = ['Games','SRS','Pace','FGpct','3Ppct','FTpct','PPG','RPG','APG','BPG','SPG','TOVPG'];
+        constantStatArray.forEach(stat => {
+            d3.select(`#stat${stat}`)._groups[0][0].textContent = constantStatsDiv[stat];
+        });
     })
 }
