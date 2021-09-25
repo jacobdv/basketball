@@ -168,4 +168,6 @@ function displayData(school) {
 
 d3.selectAll('.statPageOption').on('click', function() {
     console.log(this.textContent);
+    d3.selectAll('.statsDivs').attr('class','hide');
+    d3.select(`#${this.textContent}StatsDiv`).attr('class','show');
 })
